@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="unam_addons_form" model="ir.ui.view">
+            <field name="name">res.partner.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                
+                <field name="vat" position="before">
+                    <field name="is_teacher"/>
+                </field>
+
+                <notebook position="inside">
+                    <page name="Alumno" string="Alumno" invisible="is_teacher == True">
+                        <group name="Datos" string="Datos">
+                            
+                            <group>
+                                <field name="birthdate"></field>
+                            </group>
+
+                            <group>
+                                <field name="age"></field>
+                            </group>
+
+                            <field name="enrollment_ids"/>
+
+                        </group>
+                    </page>
+
+                    <page name="Maestro" string="Maestro" invisible="is_teacher == False">
+                        <group name="Datos" string="Datos">
+                            <field name="course_ids">
+                                <tree string="Materias" editable="button">
+                                    
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            
+            </field>
+        </record>
+
+        <record id="action_contacts_2" model="ir.actions.act_window">
+            <field name="name">Maestros</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_is_company': True, 'default_is_teacher': True}</field>
+            <field name="domain">[('is_teacher', '=', True)]</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un maestro nuevo
+            </p>
+            </field>
+        </record>
+
+        <record id="action_contacts_3" model="ir.actions.act_window">
+            <field name="name">Alumnos</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_is_company': True, 'default_is_teacher': False}</field>
+            <field name="domain">[('is_teacher', '=', False)]</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un alumno nuevo
+            </p>
+            </field>
+        </record>
+    </data>
+
+    
+</odoo>

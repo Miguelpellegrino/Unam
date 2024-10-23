@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_unam_registrations_admin,unam.registrations,model_unam_registrations,unam_addons.group_unam_admin,1,1,1,1
+access_unam_subject_admin,unam.subject,model_unam_subject,unam_addons.group_unam_admin,1,1,1,1
+access_unam_registrations_user,unam.registrations,model_unam_registrations,unam_addons.group_unam_readonly,1,0,0,0
+access_unam_subject_user,unam.subject,model_unam_subject,unam_addons.group_unam_readonly,1,0,0,0

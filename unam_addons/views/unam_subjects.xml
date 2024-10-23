@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="unam_subject_view_form" model="ir.ui.view">
+            <field name="name">unam.subject</field>
+            <field name="model">unam.subject</field>
+            <field name="arch" type="xml">
+                <form string="Materias">
+                    <h1>    
+                        <field name="name"/>    
+                    </h1>  
+                    <sheet>
+                        <group>
+                            <group name="Descripcion" string="Descripcion">
+                                <field name="description" />
+                            </group>
+
+                            <group name="Creditos" string="Creditos">
+                                <field name="credits" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_unam_subject" model="ir.actions.act_window">
+            <field name="name">Materias</field>
+            <field name="res_model">unam.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea una nueva materia
+            </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

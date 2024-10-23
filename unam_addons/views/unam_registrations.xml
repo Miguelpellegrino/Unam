@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="unam_registrations_view_form" model="ir.ui.view">
+            <field name="name">unam.registrations</field>
+            <field name="model">unam.registrations</field>
+            <field name="arch" type="xml">
+                <form string="Inscripcion">
+                    <h1>    
+                        <field name="name"/>    
+                    </h1>
+                    <header>
+                        <button name="action_confirmed" invisible="state != 'pending'" type="object" string="Confirmar" class="oe_highlight" />
+                        <button name="action_cancelled" invisible="state == 'cancelled'" type="object" string="Cancelar" class="oe_highlight" />
+                        <field name="state" widget="statusbar" statusbar_visible="pending,confirmed,cancelled"/>
+                    </header>
+                    <sheet >
+                        <group>
+                            <group name="Datos" string="Datos">
+                                <field name="student_id" readonly="state != 'pending'"/>
+                                <field name="course_id" readonly="state != 'pending'"/>
+                            </group>
+
+                            <group name="Fecha" string="Fecha">
+                                <field name="enrollment_date" readonly="state != 'pending'"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="Nota" string="Nota">
+                                <field name="note" readonly="state != 'pending'"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="unam_registrations_view_tree" model="ir.ui.view">
+            <field name="name">unam.registrations.view.tree</field>
+            <field name="model">unam.registrations</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>   
+                    <field name="enrollment_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_unam_registrations" model="ir.actions.act_window">
+            <field name="name">Inscripciones</field>
+            <field name="res_model">unam.registrations</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea una nueva Inscripcion
+            </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

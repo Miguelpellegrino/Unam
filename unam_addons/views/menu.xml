@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Inscripciones"
+        id="unam_addons_menu"
+        web_icon="unam_addons,src/description/icon.png"
+        groups="unam_addons.group_unam_admin,unam_addons.group_unam_readonly"
+        sequence="60"/>
+
+        
+    <menuitem name="Operaciones" id="unam_addons_operaciones" sequence="1" parent="unam_addons_menu">
+        <menuitem name="Registro" id="unam_addons_operaciones_registro" sequence="2" >
+            <menuitem id="unam_addons_operaciones_registro_menu" name="Alumnos" sequence="1" action="unam_addons.action_contacts_3" />
+            <menuitem id="unam_addons_operaciones_registro_menu_2" name="Maestros" sequence="2" action="unam_addons.action_contacts_2"/>
+            <menuitem id="unam_addons_operaciones_registro_menu_3" name="Inscripciones" sequence="3" action="unam_addons.action_unam_registrations"/>
+        </menuitem>
+    </menuitem>
+
+
+    <menuitem name="Configuracion" id="unam_addons_configuracion" sequence="2" parent="unam_addons_menu">
+        <menuitem id="unam_addons_operaciones_configuracion_menu_1" name="Materias" sequence="1" action="unam_addons.action_unam_subject"/>
+        <menuitem id="unam_addons_operaciones_configuracion_menu_2" name="Cursos" sequence="2" action="unam_addons.unam_product_template__action_all"/>
+    </menuitem>
+    
+    
+</odoo>
